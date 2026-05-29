@@ -195,17 +195,17 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-085 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/signup`. |  |  |
-| TASK-086 | Create `/Users/adib/Documents/InfluenceIQ/src/app/signup/page.tsx`; import `../signup.css`. |  |  |
-| TASK-087 | Convert `Signup.html` body markup to JSX in `signup/page.tsx`. |  |  |
-| TASK-088 | Replace signup form inline `onsubmit` behavior with React handler `event.preventDefault(); router.push('/onboarding');`. |  |  |
-| TASK-089 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/onboarding`. |  |  |
-| TASK-090 | Create `/Users/adib/Documents/InfluenceIQ/src/app/onboarding/page.tsx`; import `../onboarding.css`. |  |  |
-| TASK-091 | Convert `Onboarding.html` body markup to JSX in `onboarding/page.tsx`. |  |  |
-| TASK-092 | Create `/Users/adib/Documents/InfluenceIQ/src/components/ui/OnboardingStepper.tsx` as a client component. |  |  |
-| TASK-093 | In `OnboardingStepper.tsx`, implement step state values `1`, `2`, and `3`; preserve `.step-view.active`, `.step-dot.on`, and `.progress .bar.on` class behavior. |  |  |
-| TASK-094 | In `OnboardingStepper.tsx`, implement goal card toggles under `#goals`, platform card toggles under `#platforms`, budget range fill, thumb, and budget label behavior from `Onboarding.html`. |  |  |
-| TASK-095 | In `OnboardingStepper.tsx`, implement finish behavior `router.push('/dashboard?welcome=1')`. |  |  |
+| TASK-085 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/signup`. | Yes | 2026-05-30 |
+| TASK-086 | Create `/Users/adib/Documents/InfluenceIQ/src/app/signup/page.tsx`; import `../signup.css`. | Yes | 2026-05-30 |
+| TASK-087 | Convert `Signup.html` body markup to JSX in `signup/page.tsx`. | Yes | 2026-05-30 |
+| TASK-088 | Replace signup form inline `onsubmit` behavior with React handler `event.preventDefault(); router.push('/onboarding');`. | Yes | 2026-05-30 |
+| TASK-089 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/onboarding`. | Yes | 2026-05-30 |
+| TASK-090 | Create `/Users/adib/Documents/InfluenceIQ/src/app/onboarding/page.tsx`; import `../onboarding.css`. | Yes | 2026-05-30 |
+| TASK-091 | Convert `Onboarding.html` body markup to JSX in `onboarding/page.tsx`. | Yes | 2026-05-30 |
+| TASK-092 | Create `/Users/adib/Documents/InfluenceIQ/src/components/ui/OnboardingStepper.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-093 | In `OnboardingStepper.tsx`, implement step state values `1`, `2`, and `3`; preserve `.step-view.active`, `.step-dot.on`, and `.progress .bar.on` class behavior. | Yes | 2026-05-30 |
+| TASK-094 | In `OnboardingStepper.tsx`, implement goal card toggles under `#goals`, platform card toggles under `#platforms`, budget range fill, thumb, and budget label behavior from `Onboarding.html`. | Yes | 2026-05-30 |
+| TASK-095 | In `OnboardingStepper.tsx`, implement finish behavior `router.push('/dashboard?welcome=1')`. | Yes | 2026-05-30 |
 | TASK-096 | Run visual comparison for `/signup` and `/onboarding` against `Signup.html` and `Onboarding.html` at all required widths and record results. |  |  |
 
 ### Implementation Phase 8
