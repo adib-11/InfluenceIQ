@@ -2,7 +2,7 @@
 goal: Migrate InfluenceIQ static HTML prototype to a production-grade Next.js application with exact UI parity
 version: 1.0
 date_created: 2026-05-29
-last_updated: 2026-05-29
+last_updated: 2026-05-30
 owner: InfluenceIQ Engineering
 status: 'Planned'
 tags: [architecture, migration, nextjs, ui-parity, frontend]
@@ -176,17 +176,17 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-073 | Create `/Users/adib/Documents/InfluenceIQ/src/app/page.tsx`. |  |  |
-| TASK-074 | Import `/Users/adib/Documents/InfluenceIQ/src/app/landing.css` from `page.tsx`. |  |  |
-| TASK-075 | Convert the body content of `InfluenceIQ.html` from `<body>` through before the first inline `<script>` into JSX inside `page.tsx`. |  |  |
-| TASK-076 | Replace landing page anchors: `Signup.html` becomes `/signup`, `Dashboard.html` becomes `/dashboard`, `Discover.html` becomes `/discover`, and `Brief.html` becomes `/briefs/new`. |  |  |
-| TASK-077 | Create `/Users/adib/Documents/InfluenceIQ/src/components/landing/LandingInteractions.tsx` as a client component. |  |  |
-| TASK-078 | In `LandingInteractions.tsx`, implement the hero typewriter for element equivalent to `#typed` using the same text and delays from `InfluenceIQ.html`. |  |  |
-| TASK-079 | In `LandingInteractions.tsx`, implement the marquee track population for the same brand names from `InfluenceIQ.html`: `Northwind`, `Hatch & Co.`, `Vermeer`, `Lumen Labs`, `Foundry`, `Oakridge`, `Crestwood`, `Aperture`, `Halcyon`, and `Meridian`. |  |  |
-| TASK-080 | In `LandingInteractions.tsx`, implement count-up animation for `.count-up` elements with the same duration and formatting behavior from `InfluenceIQ.html`. |  |  |
-| TASK-081 | In `LandingInteractions.tsx`, implement showcase typewriter for `#sc-typed` and `.sp-row` processing animation with the same delays from `InfluenceIQ.html`. |  |  |
-| TASK-082 | In `LandingInteractions.tsx`, implement billing toggle behavior for `#billing` and `.price-value[data-price]`. |  |  |
-| TASK-083 | Insert `<LandingInteractions />` at the bottom of `page.tsx`. |  |  |
+| TASK-073 | Create `/Users/adib/Documents/InfluenceIQ/src/app/page.tsx`. | Yes | 2026-05-30 |
+| TASK-074 | Import `/Users/adib/Documents/InfluenceIQ/src/app/landing.css` from `page.tsx`. | Yes | 2026-05-30 |
+| TASK-075 | Convert the body content of `InfluenceIQ.html` from `<body>` through before the first inline `<script>` into JSX inside `page.tsx`. | Yes | 2026-05-30 |
+| TASK-076 | Replace landing page anchors: `Signup.html` becomes `/signup`, `Dashboard.html` becomes `/dashboard`, `Discover.html` becomes `/discover`, and `Brief.html` becomes `/briefs/new`. | Yes | 2026-05-30 |
+| TASK-077 | Create `/Users/adib/Documents/InfluenceIQ/src/components/landing/LandingInteractions.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-078 | In `LandingInteractions.tsx`, implement the hero typewriter for element equivalent to `#typed` using the same text and delays from `InfluenceIQ.html`. | Yes | 2026-05-30 |
+| TASK-079 | In `LandingInteractions.tsx`, implement the marquee track population for the same brand names from `InfluenceIQ.html`: `Northwind`, `Hatch & Co.`, `Vermeer`, `Lumen Labs`, `Foundry`, `Oakridge`, `Crestwood`, `Aperture`, `Halcyon`, and `Meridian`. | Yes | 2026-05-30 |
+| TASK-080 | In `LandingInteractions.tsx`, implement count-up animation for `.count-up` elements with the same duration and formatting behavior from `InfluenceIQ.html`. | Yes | 2026-05-30 |
+| TASK-081 | In `LandingInteractions.tsx`, implement showcase typewriter for `#sc-typed` and `.sp-row` processing animation with the same delays from `InfluenceIQ.html`. | Yes | 2026-05-30 |
+| TASK-082 | In `LandingInteractions.tsx`, implement billing toggle behavior for `#billing` and `.price-value[data-price]`. | Yes | 2026-05-30 |
+| TASK-083 | Insert `<LandingInteractions />` at the bottom of `page.tsx`. | Yes | 2026-05-30 |
 | TASK-084 | Run visual comparison for `/` against `InfluenceIQ.html` at all required widths and record results in `/Users/adib/Documents/InfluenceIQ/audit/parity-report.md`. |  |  |
 
 ### Implementation Phase 7
