@@ -214,14 +214,14 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-097 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/dashboard`. |  |  |
-| TASK-098 | Create `/Users/adib/Documents/InfluenceIQ/src/app/dashboard/page.tsx`; import `../dashboard.css`. |  |  |
-| TASK-099 | Wrap dashboard content in `AppShell` with crumbs `Workspace / Dashboard`, active sidebar route `/dashboard`, and `showSearch=true`. |  |  |
-| TASK-100 | Convert the `<main class="content">` content from `Dashboard.html` to JSX in `dashboard/page.tsx`. |  |  |
-| TASK-101 | Create `/Users/adib/Documents/InfluenceIQ/src/components/dashboard/DashboardInteractions.tsx` as a client component. |  |  |
-| TASK-102 | In `DashboardInteractions.tsx`, implement count-up animation for `.count-up` elements with the same behavior from `Dashboard.html`. |  |  |
-| TASK-103 | In `DashboardInteractions.tsx`, show welcome toast when `useSearchParams().get('welcome') === '1'` with message `Welcome to InfluenceIQ! Your account is ready.`, type `success`, and duration `4500`. |  |  |
-| TASK-104 | Replace all `Shortlist.html` dashboard links with `/shortlist`. |  |  |
+| TASK-097 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/dashboard`. | Yes | 2026-05-30 |
+| TASK-098 | Create `/Users/adib/Documents/InfluenceIQ/src/app/dashboard/page.tsx`; import `../dashboard.css`. | Yes | 2026-05-30 |
+| TASK-099 | Wrap dashboard content in `AppShell` with crumbs `Workspace / Dashboard`, active sidebar route `/dashboard`, and `showSearch=true`. | Yes | 2026-05-30 |
+| TASK-100 | Convert the `<main class="content">` content from `Dashboard.html` to JSX in `dashboard/page.tsx`. | Yes | 2026-05-30 |
+| TASK-101 | Create `/Users/adib/Documents/InfluenceIQ/src/components/dashboard/DashboardInteractions.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-102 | In `DashboardInteractions.tsx`, implement count-up animation for `.count-up` elements with the same behavior from `Dashboard.html`. | Yes | 2026-05-30 |
+| TASK-103 | In `DashboardInteractions.tsx`, show welcome toast when `useSearchParams().get('welcome') === '1'` with message `Welcome to InfluenceIQ! Your account is ready.`, type `success`, and duration `4500`. | Yes | 2026-05-30 |
+| TASK-104 | Replace all `Shortlist.html` dashboard links with `/shortlist`. | Yes | 2026-05-30 |
 | TASK-105 | Run visual comparison for `/dashboard` against `Dashboard.html` at all required widths and record results. |  |  |
 
 ### Implementation Phase 9
