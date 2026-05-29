@@ -161,14 +161,14 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-065 | Create `/Users/adib/Documents/InfluenceIQ/src/data/creators.ts`; export `discoverCreators` from the `const creators` array in `Discover.html`. |  |  |
-| TASK-066 | In `creators.ts`, define TypeScript type `DiscoverCreator` with fields matching every property used in `Discover.html`: `name`, `handle`, `platform`, `followers`, `engagement`, `rate`, `match`, `tags`, `avatar`, `avatarClass`, and `glow`. |  |  |
-| TASK-067 | Create `/Users/adib/Documents/InfluenceIQ/src/data/tableCreators.ts`; export `tableCreators` from the `const data` array in `DiscoverTable.html`. |  |  |
-| TASK-068 | Create `/Users/adib/Documents/InfluenceIQ/src/data/lists.ts`; export `savedLists` from the `const lists` array in `Lists.html`. |  |  |
-| TASK-069 | In `lists.ts`, export `savedListRows` from the `const detRows` array in `Lists.html`. |  |  |
-| TASK-070 | Create `/Users/adib/Documents/InfluenceIQ/src/data/matches.ts`; export `shortlistMatches` from the `const matches` array in `Shortlist.html`. |  |  |
-| TASK-071 | Create `/Users/adib/Documents/InfluenceIQ/src/data/briefDefaults.ts`; export the default brief values used by `Brief.html` and `Shortlist.html`: brand `Northwind Outdoor`, product `SS26 Trail Capsule`, category `Outdoor & Activewear`, goal `Product Launch`, ages `18-24` and `25-34`, gender `All`, locations `USA` and `Canada`, platforms `Instagram` and `YouTube`, tier `Established`, and budget `$2,500 - $12,000 USD`. |  |  |
-| TASK-072 | Create `/Users/adib/Documents/InfluenceIQ/src/lib/briefQuery.ts`; implement `parseBriefSearchParams(searchParams)` and `buildBriefSearchParams(brief)` using the same keys as the HTML: `brand`, `product`, `category`, `goal`, `ages`, `gender`, `locs`, `platforms`, `tier`, and `budget`. |  |  |
+| TASK-065 | Create `/Users/adib/Documents/InfluenceIQ/src/data/creators.ts`; export `discoverCreators` from the `const creators` array in `Discover.html`. | Yes | 2026-05-29 |
+| TASK-066 | In `creators.ts`, define TypeScript type `DiscoverCreator` with fields matching every property used in `Discover.html`: `name`, `handle`, `platform`, `followers`, `engagement`, `rate`, `match`, `tags`, `avatar`, `avatarClass`, and `glow`. | Yes | 2026-05-29 |
+| TASK-067 | Create `/Users/adib/Documents/InfluenceIQ/src/data/tableCreators.ts`; export `tableCreators` from the `const data` array in `DiscoverTable.html`. | Yes | 2026-05-29 |
+| TASK-068 | Create `/Users/adib/Documents/InfluenceIQ/src/data/lists.ts`; export `savedLists` from the `const lists` array in `Lists.html`. | Yes | 2026-05-29 |
+| TASK-069 | In `lists.ts`, export `savedListRows` from the `const detRows` array in `Lists.html`. | Yes | 2026-05-29 |
+| TASK-070 | Create `/Users/adib/Documents/InfluenceIQ/src/data/matches.ts`; export `shortlistMatches` from the `const matches` array in `Shortlist.html`. | Yes | 2026-05-29 |
+| TASK-071 | Create `/Users/adib/Documents/InfluenceIQ/src/data/briefDefaults.ts`; export the default brief values used by `Brief.html` and `Shortlist.html`: brand `Northwind Outdoor`, product `SS26 Trail Capsule`, category `Outdoor & Activewear`, goal `Product Launch`, ages `18-24` and `25-34`, gender `All`, locations `USA` and `Canada`, platforms `Instagram` and `YouTube`, tier `Established`, and budget `$2,500 - $12,000 USD`. | Yes | 2026-05-29 |
+| TASK-072 | Create `/Users/adib/Documents/InfluenceIQ/src/lib/briefQuery.ts`; implement `parseBriefSearchParams(searchParams)` and `buildBriefSearchParams(brief)` using the same keys as the HTML: `brand`, `product`, `category`, `goal`, `ages`, `gender`, `locs`, `platforms`, `tier`, and `budget`. | Yes | 2026-05-29 |
 
 ### Implementation Phase 6
 

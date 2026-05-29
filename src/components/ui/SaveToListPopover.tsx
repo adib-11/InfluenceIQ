@@ -1,7 +1,7 @@
 "use client";
 
 import { cloneElement, useEffect, useId, useMemo, useRef, useState } from "react";
-import type { ReactElement, MouseEvent as ReactMouseEvent } from "react";
+import type { MouseEvent as ReactMouseEvent, ReactElement } from "react";
 
 import { useToast } from "./ToastProvider";
 
@@ -11,7 +11,7 @@ type ListItem = {
 };
 
 type SaveToListPopoverProps = {
-  children: ReactElement;
+  children: ReactElement<{ onClick?: (event: ReactMouseEvent) => void }>;
 };
 
 const defaultLists: ListItem[] = [

@@ -141,7 +141,7 @@ export default function Sidebar({ brandHref = routes.dashboard }: SidebarProps) 
 
       <div className="upgrade-card">
         <span className="sparkle">✦</span>
-        <div className="t">You're on Starter</div>
+        <div className="t">You&apos;re on Starter</div>
         <div className="s">
           3 of 5 active briefs used this month. Unlock unlimited briefs and CRM
           exports.
