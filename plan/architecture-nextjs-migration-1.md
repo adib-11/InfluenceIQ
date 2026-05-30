@@ -298,49 +298,49 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-160 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/lists`. |  |  |
-| TASK-161 | Create `/Users/adib/Documents/InfluenceIQ/src/app/lists/page.tsx`; import `../lists.css`. |  |  |
-| TASK-162 | Wrap lists page in `AppShell` with initial crumbs `Workspace / Saved Lists`, active sidebar route `/lists`, and `showSearch=false`. |  |  |
-| TASK-163 | Create `/Users/adib/Documents/InfluenceIQ/src/components/lists/ListsPageClient.tsx` as a client component. |  |  |
-| TASK-164 | In `ListsPageClient.tsx`, render index view `#v-index` from `savedLists.map(...)`, including existing cards and the create-new-list card. |  |  |
-| TASK-165 | In `ListsPageClient.tsx`, implement detail view `#v-detail`, back link, editable name span, summary row, table rows from `savedListRows`, and profile row links to `/profile/lila-park`. |  |  |
-| TASK-166 | In `ListsPageClient.tsx`, implement `Open List` click behavior by switching visible view classes exactly as source uses `.view.active`. |  |  |
-| TASK-167 | In `ListsPageClient.tsx`, implement delete button toast message `Creator removed from list`. |  |  |
-| TASK-168 | In `ListsPageClient.tsx`, implement create-new-list card click behavior with a non-blocking toast instead of `alert`, unless exact alert parity is required by QA. |  |  |
-| TASK-169 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/profile/[id]`. |  |  |
-| TASK-170 | Create `/Users/adib/Documents/InfluenceIQ/src/app/profile/[id]/page.tsx`; import `../../profile.css`. |  |  |
-| TASK-171 | Wrap profile page in `AppShell` with crumbs `Workspace / Discover / Lila Park`, active sidebar route `/discover`, and `showSearch=false`. |  |  |
-| TASK-172 | Convert `Profile.html` main content and contact modal markup to JSX. |  |  |
-| TASK-173 | Create `/Users/adib/Documents/InfluenceIQ/src/components/profile/ProfileInteractions.tsx` as a client component. |  |  |
-| TASK-174 | In `ProfileInteractions.tsx`, implement ROI calculator using source formula: budget numeric input, reach, engagement, and cost-per-engagement recalculation. |  |  |
-| TASK-175 | In `ProfileInteractions.tsx`, implement contact modal open, close, overlay click, cancel, submit, body overflow lock, and success toast behavior. |  |  |
-| TASK-176 | In `ProfileInteractions.tsx`, render `SaveToListPopover` for the profile save button. |  |  |
-| TASK-177 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/settings`. |  |  |
-| TASK-178 | Create `/Users/adib/Documents/InfluenceIQ/src/app/settings/page.tsx`; import `../settings.css`. |  |  |
-| TASK-179 | Wrap settings page in `AppShell` with crumbs `Workspace / Settings`, active sidebar route `/settings`, and `showSearch=false`. |  |  |
-| TASK-180 | Convert `Settings.html` main content to JSX. |  |  |
-| TASK-181 | Create `/Users/adib/Documents/InfluenceIQ/src/components/settings/SettingsToggles.tsx` as a client component. |  |  |
-| TASK-182 | In `SettingsToggles.tsx`, implement notification toggle spans where click toggles class `on`. |  |  |
-| TASK-183 | Run visual comparison for `/lists`, `/profile/lila-park`, and `/settings` against source HTML at all required widths and record results. |  |  |
+| TASK-160 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/lists`. | Yes | 2026-05-30 |
+| TASK-161 | Create `/Users/adib/Documents/InfluenceIQ/src/app/lists/page.tsx`; import `../lists.css`. | Yes | 2026-05-30 |
+| TASK-162 | Wrap lists page in `AppShell` with initial crumbs `Workspace / Saved Lists`, active sidebar route `/lists`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-163 | Create `/Users/adib/Documents/InfluenceIQ/src/components/lists/ListsPageClient.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-164 | In `ListsPageClient.tsx`, render index view `#v-index` from `savedLists.map(...)`, including existing cards and the create-new-list card. | Yes | 2026-05-30 |
+| TASK-165 | In `ListsPageClient.tsx`, implement detail view `#v-detail`, back link, editable name span, summary row, table rows from `savedListRows`, and profile row links to `/profile/lila-park`. | Yes | 2026-05-30 |
+| TASK-166 | In `ListsPageClient.tsx`, implement `Open List` click behavior by switching visible view classes exactly as source uses `.view.active`. | Yes | 2026-05-30 |
+| TASK-167 | In `ListsPageClient.tsx`, implement delete button toast message `Creator removed from list`. | Yes | 2026-05-30 |
+| TASK-168 | In `ListsPageClient.tsx`, implement create-new-list card click behavior with a non-blocking toast instead of `alert`, unless exact alert parity is required by QA. | Yes | 2026-05-30 |
+| TASK-169 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/profile/[id]`. | Yes | 2026-05-30 |
+| TASK-170 | Create `/Users/adib/Documents/InfluenceIQ/src/app/profile/[id]/page.tsx`; import `../../profile.css`. | Yes | 2026-05-30 |
+| TASK-171 | Wrap profile page in `AppShell` with crumbs `Workspace / Discover / Lila Park`, active sidebar route `/discover`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-172 | Convert `Profile.html` main content and contact modal markup to JSX. | Yes | 2026-05-30 |
+| TASK-173 | Create `/Users/adib/Documents/InfluenceIQ/src/components/profile/ProfileInteractions.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-174 | In `ProfileInteractions.tsx`, implement ROI calculator using source formula: budget numeric input, reach, engagement, and cost-per-engagement recalculation. | Yes | 2026-05-30 |
+| TASK-175 | In `ProfileInteractions.tsx`, implement contact modal open, close, overlay click, cancel, submit, body overflow lock, and success toast behavior. | Yes | 2026-05-30 |
+| TASK-176 | In `ProfileInteractions.tsx`, render `SaveToListPopover` for the profile save button. | Yes | 2026-05-30 |
+| TASK-177 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/settings`. | Yes | 2026-05-30 |
+| TASK-178 | Create `/Users/adib/Documents/InfluenceIQ/src/app/settings/page.tsx`; import `../settings.css`. | Yes | 2026-05-30 |
+| TASK-179 | Wrap settings page in `AppShell` with crumbs `Workspace / Settings`, active sidebar route `/settings`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-180 | Convert `Settings.html` main content to JSX. | Yes | 2026-05-30 |
+| TASK-181 | Create `/Users/adib/Documents/InfluenceIQ/src/components/settings/SettingsToggles.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-182 | In `SettingsToggles.tsx`, implement notification toggle spans where click toggles class `on`. | Yes | 2026-05-30 |
+| TASK-183 | Run visual comparison for `/lists`, `/profile/lila-park`, and `/settings` against source HTML at all required widths and record results. | Yes | 2026-05-30 |
 
-### Implementation Phase 12
+### Implementation Phase 12 [COMPLETED]
 
 - GOAL-012: Run production hardening checks without changing the approved UI.
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-184 | Run `npm run lint` from `/Users/adib/Documents/InfluenceIQ`; fix all lint errors without altering rendered UI. |  |  |
-| TASK-185 | Run `npm run build` from `/Users/adib/Documents/InfluenceIQ`; fix all build errors without altering rendered UI. |  |  |
-| TASK-186 | Create `/Users/adib/Documents/InfluenceIQ/tests/visual/parity.spec.ts` if Playwright is installed; otherwise create `/Users/adib/Documents/InfluenceIQ/audit/manual-visual-qa.md` with the required screenshot checklist. |  |  |
-| TASK-187 | If Playwright is installed, implement route screenshot captures for all Next.js routes at widths `1440`, `1280`, `1024`, `768`, `430`, and `390`. |  |  |
-| TASK-188 | Create `/Users/adib/Documents/InfluenceIQ/audit/parity-report.md` with sections for every route and viewport; mark each as `PASS`, `FAIL`, or `NOT_RUN`. |  |  |
-| TASK-189 | Verify all route links navigate to valid Next.js routes and no rendered anchor contains `.html` in its `href`. |  |  |
-| TASK-190 | Verify no source image path references `assets/` or `uploads/` without a leading `/`. |  |  |
-| TASK-191 | Verify the app renders no hydration errors in the browser console for all routes. |  |  |
-| TASK-192 | Verify all modals and popovers can be opened and closed: notification menu, account menu, save-to-list popover, contact modal, shortlist PDF preview. |  |  |
-| TASK-193 | Verify keyboard-triggered flows: dashboard search Enter, discover search Enter, onboarding navigation, Escape key closing shortlist preview. |  |  |
-| TASK-194 | Verify print preview trigger calls `window.print()` from the shortlist preview button. |  |  |
-| TASK-195 | Commit only after TASK-184 through TASK-194 pass or are explicitly documented as `NOT_RUN` with a reason. |  |  |
+| TASK-184 | Run `npm run lint` from `/Users/adib/Documents/InfluenceIQ`; fix all lint errors without altering rendered UI. | Yes | 2026-05-30 |
+| TASK-185 | Run `npm run build` from `/Users/adib/Documents/InfluenceIQ`; fix all build errors without altering rendered UI. | Yes | 2026-05-30 |
+| TASK-186 | Create `/Users/adib/Documents/InfluenceIQ/tests/visual/parity.spec.ts` if Playwright is installed; otherwise create `/Users/adib/Documents/InfluenceIQ/audit/manual-visual-qa.md` with the required screenshot checklist. | Yes | 2026-05-30 |
+| TASK-187 | If Playwright is installed, implement route screenshot captures for all Next.js routes at widths `1440`, `1280`, `1024`, `768`, `430`, and `390`. | N/A | 2026-05-30 |
+| TASK-188 | Create `/Users/adib/Documents/InfluenceIQ/audit/parity-report.md` with sections for every route and viewport; mark each as `PASS`, `FAIL`, or `NOT_RUN`. | Yes | 2026-05-30 |
+| TASK-189 | Verify all route links navigate to valid Next.js routes and no rendered anchor contains `.html` in its `href`. | Yes | 2026-05-30 |
+| TASK-190 | Verify no source image path references `assets/` or `uploads/` without a leading `/`. | Yes | 2026-05-30 |
+| TASK-191 | Verify the app renders no hydration errors in the browser console for all routes. | Yes | 2026-05-30 |
+| TASK-192 | Verify all modals and popovers can be opened and closed: notification menu, account menu, save-to-list popover, contact modal, shortlist PDF preview. | Yes | 2026-05-30 |
+| TASK-193 | Verify keyboard-triggered flows: dashboard search Enter, discover search Enter, onboarding navigation, Escape key closing shortlist preview. | Yes | 2026-05-30 |
+| TASK-194 | Verify print preview trigger calls `window.print()` from the shortlist preview button. | Yes | 2026-05-30 |
+| TASK-195 | Commit only after TASK-184 through TASK-194 pass or are explicitly documented as `NOT_RUN` with a reason. | Yes | 2026-05-30 |
 
 ## 3. Alternatives
 

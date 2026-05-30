@@ -57,6 +57,11 @@ export default function ShortlistPageClient() {
   useEffect(() => {
     if (showPdf) {
       document.body.style.overflow = 'hidden';
+      const handleEsc = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setShowPdf(false);
+      };
+      window.addEventListener('keydown', handleEsc);
+      return () => window.removeEventListener('keydown', handleEsc);
     } else {
       document.body.style.overflow = '';
     }
