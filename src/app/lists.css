@@ -7,11 +7,11 @@
   @keyframes vin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
   /* ===== Lists index ===== */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:720px){.grid{grid-template-columns:1fr}}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:720px){.grid{grid-template-columns:minmax(0,1fr)}}
 
-  .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden;isolation:isolate;opacity:0;transform:translateY(8px);animation:cIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+  .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden;isolation:isolate;opacity:0;transform:translateY(8px);animation:cIn .5s cubic-bezier(.2,.8,.2,1) forwards;min-width:0}
   @keyframes cIn{to{opacity:1;transform:none}}
   .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.15s}.card:nth-child(3){animation-delay:.25s}.card:nth-child(4){animation-delay:.35s}
   .card:hover{transform:translateY(-3px);box-shadow:0 24px 50px -28px rgba(60,50,120,0.30);border-color:color-mix(in oklab,var(--violet),white 80%)}
@@ -45,7 +45,7 @@
   .pf-ig{background:linear-gradient(135deg,#f58529,#dd2a7b 50%,#8134af 80%,#515bd4)}
   .pf-yt{background:#ff0033}.pf-tt{background:#0a0b10}.pf-fb{background:#1877f2}
 
-  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border-radius:10px;overflow:hidden;margin-bottom:16px}
+  .stat-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line-soft);border-radius:10px;overflow:hidden;margin-bottom:16px}
   .stat-row > div{background:var(--paper);padding:10px 12px}
   .stat-row .l{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
   .stat-row .v{margin-top:4px;font-size:15px;font-weight:500;letter-spacing:-0.01em}
