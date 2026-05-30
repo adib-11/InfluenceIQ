@@ -620,7 +620,7 @@
   }
 
   .view-toggle { display: inline-flex; background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 3px; }
-  .view-toggle button {
+  .view-toggle button, .view-toggle a {
     border: 0; background: transparent;
     width: 32px; height: 30px;
     border-radius: 6px;
@@ -628,7 +628,8 @@
     cursor: pointer;
     display: grid; place-items: center;
   }
-  .view-toggle button.active { background: var(--paper-2); color: var(--ink); }
+  .view-toggle button.active, .view-toggle a.active { background: var(--paper-2); color: var(--ink); }
+  .view-toggle button svg, .view-toggle a svg { width: 16px; height: 16px; }
 
   /* ---------- Card grid ---------- */
   .grid {

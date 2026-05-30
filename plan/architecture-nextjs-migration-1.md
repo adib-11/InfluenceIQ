@@ -230,26 +230,26 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-106 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/discover`. |  |  |
-| TASK-107 | Create `/Users/adib/Documents/InfluenceIQ/src/app/discover/page.tsx`; import `../discover.css`. |  |  |
-| TASK-108 | Wrap discover card page in `AppShell` with crumbs `Workspace / Discover`, active sidebar route `/discover`, and `showSearch=false`. |  |  |
-| TASK-109 | Convert static discover page markup from `Discover.html` to JSX. |  |  |
-| TASK-110 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverGrid.tsx` as a client component that renders `discoverCreators.map(...)` using the same card markup currently generated in `Discover.html`. |  |  |
-| TASK-111 | In `DiscoverGrid.tsx`, route `View Profile` buttons to `/profile/lila-park`. |  |  |
-| TASK-112 | In `DiscoverGrid.tsx`, render `SaveToListPopover` for each save button. |  |  |
-| TASK-113 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverSearch.tsx` as a client component. |  |  |
-| TASK-114 | In `DiscoverSearch.tsx`, implement click and Enter behavior for `Find creators` to route to `/matching?next=/shortlist`. |  |  |
-| TASK-115 | In `DiscoverSearch.tsx`, implement suggestion chip click behavior by setting the natural language input value to the clicked chip text. |  |  |
-| TASK-116 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/RangeFilter.tsx`; implement CSS custom property `--p` updates for budget and engagement range inputs exactly as `bindRange` does in `Discover.html`. |  |  |
-| TASK-117 | Replace table view button `DiscoverTable.html` with route `/discover/table`. |  |  |
-| TASK-118 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/discover/table`. |  |  |
-| TASK-119 | Create `/Users/adib/Documents/InfluenceIQ/src/app/discover/table/page.tsx`; import `../../discover-table.css`. |  |  |
-| TASK-120 | Wrap discover table page in `AppShell` with crumbs `Workspace / Discover / Table view`, active sidebar route `/discover`, and `showSearch=false`. |  |  |
-| TASK-121 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverTable.tsx` as a client component that renders `tableCreators.map(...)` using the same row markup currently generated in `DiscoverTable.html`. |  |  |
-| TASK-122 | In `DiscoverTable.tsx`, implement row checkbox selection, header checkbox selection, selected row class, bulk bar visibility, bulk count, clear selected, and save-to-list toast behavior. |  |  |
-| TASK-123 | In `DiscoverTable.tsx`, implement sortable headers using the same `th[data-k]` keys and visual sort state from `DiscoverTable.html`. |  |  |
-| TASK-124 | In `DiscoverTable.tsx`, implement quick search filtering against rendered row text. |  |  |
-| TASK-125 | Replace card view button `Discover.html` with route `/discover`. |  |  |
+| TASK-106 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/discover`. | Yes | 2026-05-30 |
+| TASK-107 | Create `/Users/adib/Documents/InfluenceIQ/src/app/discover/page.tsx`; import `../discover.css`. | Yes | 2026-05-30 |
+| TASK-108 | Wrap discover card page in `AppShell` with crumbs `Workspace / Discover`, active sidebar route `/discover`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-109 | Convert static discover page markup from `Discover.html` to JSX. | Yes | 2026-05-30 |
+| TASK-110 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverGrid.tsx` as a client component that renders `discoverCreators.map(...)` using the same card markup currently generated in `Discover.html`. | Yes | 2026-05-30 |
+| TASK-111 | In `DiscoverGrid.tsx`, route `View Profile` buttons to `/profile/lila-park`. | Yes | 2026-05-30 |
+| TASK-112 | In `DiscoverGrid.tsx`, render `SaveToListPopover` for each save button. | Yes | 2026-05-30 |
+| TASK-113 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverSearch.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-114 | In `DiscoverSearch.tsx`, implement click and Enter behavior for `Find creators` to route to `/matching?next=/shortlist`. | Yes | 2026-05-30 |
+| TASK-115 | In `DiscoverSearch.tsx`, implement suggestion chip click behavior by setting the natural language input value to the clicked chip text. | Yes | 2026-05-30 |
+| TASK-116 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/RangeFilter.tsx`; implement CSS custom property `--p` updates for budget and engagement range inputs exactly as `bindRange` does in `Discover.html`. | Yes | 2026-05-30 |
+| TASK-117 | Replace table view button `DiscoverTable.html` with route `/discover/table`. | Yes | 2026-05-30 |
+| TASK-118 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/discover/table`. | Yes | 2026-05-30 |
+| TASK-119 | Create `/Users/adib/Documents/InfluenceIQ/src/app/discover/table/page.tsx`; import `../../discover-table.css`. | Yes | 2026-05-30 |
+| TASK-120 | Wrap discover table page in `AppShell` with crumbs `Workspace / Discover / Table view`, active sidebar route `/discover`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-121 | Create `/Users/adib/Documents/InfluenceIQ/src/components/discover/DiscoverTable.tsx` as a client component that renders `tableCreators.map(...)` using the same row markup currently generated in `DiscoverTable.html`. | Yes | 2026-05-30 |
+| TASK-122 | In `DiscoverTable.tsx`, implement row checkbox selection, header checkbox selection, selected row class, bulk bar visibility, bulk count, clear selected, and save-to-list toast behavior. | Yes | 2026-05-30 |
+| TASK-123 | In `DiscoverTable.tsx`, implement sortable headers using the same `th[data-k]` keys and visual sort state from `DiscoverTable.html`. | Yes | 2026-05-30 |
+| TASK-124 | In `DiscoverTable.tsx`, implement quick search filtering against rendered row text. | Yes | 2026-05-30 |
+| TASK-125 | Replace card view button `Discover.html` with route `/discover`. | Yes | 2026-05-30 |
 | TASK-126 | Run visual comparison for `/discover` and `/discover/table` against `Discover.html` and `DiscoverTable.html` at all required widths and record results. |  |  |
 
 ### Implementation Phase 10
