@@ -258,38 +258,38 @@ This implementation plan migrates the static InfluenceIQ HTML project at `/Users
 
 | Task | Description | Completed | Date |
 |------|-------------|-----------|------|
-| TASK-127 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/briefs`. |  |  |
-| TASK-128 | Create `/Users/adib/Documents/InfluenceIQ/src/app/briefs/page.tsx`; import `../briefs.css`. |  |  |
-| TASK-129 | Wrap briefs index page in `AppShell` with crumbs `Workspace / Campaign Briefs`, active sidebar route `/briefs`, and `showSearch=false`. |  |  |
-| TASK-130 | Convert `Briefs.html` main content to JSX in `briefs/page.tsx`. |  |  |
-| TASK-131 | Replace `Brief.html` links with `/briefs/new`. |  |  |
-| TASK-132 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/briefs/new`. |  |  |
-| TASK-133 | Create `/Users/adib/Documents/InfluenceIQ/src/app/briefs/new/page.tsx`; import `../../brief-new.css`. |  |  |
-| TASK-134 | Wrap new brief page in `AppShell` with crumbs `Workspace / Campaign Briefs / New brief`, active sidebar route `/briefs`, and `showSearch=false`. |  |  |
-| TASK-135 | Create `/Users/adib/Documents/InfluenceIQ/src/components/briefs/BriefForm.tsx` as a client component. |  |  |
-| TASK-136 | In `BriefForm.tsx`, convert `Brief.html` form markup to JSX while preserving field ids, classes, default values, selected states, and preview panel classes. |  |  |
-| TASK-137 | In `BriefForm.tsx`, implement chip toggles for `#ages` and `#locs`; selected chips must have class `on`. |  |  |
-| TASK-138 | In `BriefForm.tsx`, implement segmented control behavior for `#gender` and `#currency`; selected buttons must have class `on`. |  |  |
-| TASK-139 | In `BriefForm.tsx`, implement tag input behavior: Enter adds a new removable chip before the input, clicking `.x` removes the chip. |  |  |
-| TASK-140 | In `BriefForm.tsx`, implement budget range and min/max input sync. The budget readout must match `$2,500 - $12,000 USD` formatting except where the source uses an en dash; preserve the visually rendered text by using the same glyph in JSX if required. |  |  |
-| TASK-141 | In `BriefForm.tsx`, implement live preview bindings for brand, product, category, goal, ages, gender, locations, platforms, tier, and budget. |  |  |
-| TASK-142 | In `BriefForm.tsx`, implement submit click behavior: show loading overlay, animate loading steps every `700` ms, increment profile count toward `50247`, then route to `/shortlist?` plus `buildBriefSearchParams(brief)`. |  |  |
-| TASK-143 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/matching`. |  |  |
-| TASK-144 | Create `/Users/adib/Documents/InfluenceIQ/src/app/matching/page.tsx`; import `../matching.css`. |  |  |
-| TASK-145 | Convert `Matching.html` markup to JSX in `matching/page.tsx`. |  |  |
-| TASK-146 | Create `/Users/adib/Documents/InfluenceIQ/src/components/briefs/MatchingAnimation.tsx` as a client component. |  |  |
-| TASK-147 | In `MatchingAnimation.tsx`, create the same number of particles as `Matching.html`, animate the same step timings `[720, 600, 800, 700, 580]`, update ticker values, fill width, percent value, and redirect to `searchParams.next || '/shortlist'`. |  |  |
-| TASK-148 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/shortlist`. |  |  |
-| TASK-149 | Create `/Users/adib/Documents/InfluenceIQ/src/app/shortlist/page.tsx`; import `../shortlist.css`. |  |  |
-| TASK-150 | Wrap shortlist page in `AppShell` with crumbs `Workspace / Campaign Briefs / {brief.product}`, active sidebar route `/briefs`, and `showSearch=false`. |  |  |
-| TASK-151 | Create `/Users/adib/Documents/InfluenceIQ/src/components/shortlist/ShortlistPageClient.tsx` as a client component. |  |  |
-| TASK-152 | In `ShortlistPageClient.tsx`, parse search params using `parseBriefSearchParams`; render default brief values when params are absent. |  |  |
-| TASK-153 | In `ShortlistPageClient.tsx`, render `shortlistMatches.map(...)` using the exact row markup from `Shortlist.html`. |  |  |
-| TASK-154 | In `ShortlistPageClient.tsx`, implement row checked state, checkbox class `on`, row class `checked`, and selected count. Initial selected count must be `2`. |  |  |
-| TASK-155 | In `ShortlistPageClient.tsx`, implement compare button toast with message matching `Shortlist.html`. |  |  |
-| TASK-156 | In `ShortlistPageClient.tsx`, implement export button behavior: build PDF preview markup from selected matches, show `.pdf-preview`, set body overflow hidden, close on Close button, overlay click, and Escape key. |  |  |
-| TASK-157 | In `ShortlistPageClient.tsx`, implement print button behavior using `window.print()`. |  |  |
-| TASK-158 | Replace profile links with `/profile/lila-park`. |  |  |
+| TASK-127 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/briefs`. | Yes | 2026-05-30 |
+| TASK-128 | Create `/Users/adib/Documents/InfluenceIQ/src/app/briefs/page.tsx`; import `../briefs.css`. | Yes | 2026-05-30 |
+| TASK-129 | Wrap briefs index page in `AppShell` with crumbs `Workspace / Campaign Briefs`, active sidebar route `/briefs`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-130 | Convert `Briefs.html` main content to JSX in `briefs/page.tsx`. | Yes | 2026-05-30 |
+| TASK-131 | Replace `Brief.html` links with `/briefs/new`. | Yes | 2026-05-30 |
+| TASK-132 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/briefs/new`. | Yes | 2026-05-30 |
+| TASK-133 | Create `/Users/adib/Documents/InfluenceIQ/src/app/briefs/new/page.tsx`; import `../../brief-new.css`. | Yes | 2026-05-30 |
+| TASK-134 | Wrap new brief page in `AppShell` with crumbs `Workspace / Campaign Briefs / New brief`, active sidebar route `/briefs`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-135 | Create `/Users/adib/Documents/InfluenceIQ/src/components/briefs/BriefForm.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-136 | In `BriefForm.tsx`, convert `Brief.html` form markup to JSX while preserving field ids, classes, default values, selected states, and preview panel classes. | Yes | 2026-05-30 |
+| TASK-137 | In `BriefForm.tsx`, implement chip toggles for `#ages` and `#locs`; selected chips must have class `on`. | Yes | 2026-05-30 |
+| TASK-138 | In `BriefForm.tsx`, implement segmented control behavior for `#gender` and `#currency`; selected buttons must have class `on`. | Yes | 2026-05-30 |
+| TASK-139 | In `BriefForm.tsx`, implement tag input behavior: Enter adds a new removable chip before the input, clicking `.x` removes the chip. | Yes | 2026-05-30 |
+| TASK-140 | In `BriefForm.tsx`, implement budget range and min/max input sync. The budget readout must match `$2,500 - $12,000 USD` formatting except where the source uses an en dash; preserve the visually rendered text by using the same glyph in JSX if required. | Yes | 2026-05-30 |
+| TASK-141 | In `BriefForm.tsx`, implement live preview bindings for brand, product, category, goal, ages, gender, locations, platforms, tier, and budget. | Yes | 2026-05-30 |
+| TASK-142 | In `BriefForm.tsx`, implement submit click behavior: show loading overlay, animate loading steps every `700` ms, increment profile count toward `50247`, then route to `/shortlist?` plus `buildBriefSearchParams(brief)`. | Yes | 2026-05-30 |
+| TASK-143 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/matching`. | Yes | 2026-05-30 |
+| TASK-144 | Create `/Users/adib/Documents/InfluenceIQ/src/app/matching/page.tsx`; import `../matching.css`. | Yes | 2026-05-30 |
+| TASK-145 | Convert `Matching.html` markup to JSX in `matching/page.tsx`. | Yes | 2026-05-30 |
+| TASK-146 | Create `/Users/adib/Documents/InfluenceIQ/src/components/briefs/MatchingAnimation.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-147 | In `MatchingAnimation.tsx`, create the same number of particles as `Matching.html`, animate the same step timings `[720, 600, 800, 700, 580]`, update ticker values, fill width, percent value, and redirect to `searchParams.next || '/shortlist'`. | Yes | 2026-05-30 |
+| TASK-148 | Create route directory `/Users/adib/Documents/InfluenceIQ/src/app/shortlist`. | Yes | 2026-05-30 |
+| TASK-149 | Create `/Users/adib/Documents/InfluenceIQ/src/app/shortlist/page.tsx`; import `../shortlist.css`. | Yes | 2026-05-30 |
+| TASK-150 | Wrap shortlist page in `AppShell` with crumbs `Workspace / Campaign Briefs / {brief.product}`, active sidebar route `/briefs`, and `showSearch=false`. | Yes | 2026-05-30 |
+| TASK-151 | Create `/Users/adib/Documents/InfluenceIQ/src/components/shortlist/ShortlistPageClient.tsx` as a client component. | Yes | 2026-05-30 |
+| TASK-152 | In `ShortlistPageClient.tsx`, parse search params using `parseBriefSearchParams`; render default brief values when params are absent. | Yes | 2026-05-30 |
+| TASK-153 | In `ShortlistPageClient.tsx`, render `shortlistMatches.map(...)` using the exact row markup from `Shortlist.html`. | Yes | 2026-05-30 |
+| TASK-154 | In `ShortlistPageClient.tsx`, implement row checked state, checkbox class `on`, row class `checked`, and selected count. Initial selected count must be `2`. | Yes | 2026-05-30 |
+| TASK-155 | In `ShortlistPageClient.tsx`, implement compare button toast with message matching `Shortlist.html`. | Yes | 2026-05-30 |
+| TASK-156 | In `ShortlistPageClient.tsx`, implement export button behavior: build PDF preview markup from selected matches, show `.pdf-preview`, set body overflow hidden, close on Close button, overlay click, and Escape key. | Yes | 2026-05-30 |
+| TASK-157 | In `ShortlistPageClient.tsx`, implement print button behavior using `window.print()`. | Yes | 2026-05-30 |
+| TASK-158 | Replace profile links with `/profile/lila-park`. | Yes | 2026-05-30 |
 | TASK-159 | Run visual comparison for `/briefs`, `/briefs/new`, `/matching`, and `/shortlist` against source HTML at all required widths and record results. |  |  |
 
 ### Implementation Phase 11
