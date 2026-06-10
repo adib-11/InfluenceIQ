@@ -17,6 +17,16 @@ import {
   extractTags,
   formatCompactNumber,
   formatPercent,
+  getBrandSafetyState,
+  getConfidenceLabel,
+  getFakeRiskLabel,
+  getHumanReviewFlag,
+  getNegativeReasons,
+  getPositiveReasons,
+  getRiskCategory,
+  getRole5TrustScore,
+  getSourceConfidence,
+  hostLabel,
   titleize,
 } from "@/lib/influencerPresentation";
 import ProfileInteractions from "./ProfileInteractions";
@@ -119,6 +129,15 @@ export default function LiveProfilePageClient({
       citations: influencer.citations,
       brandSafetyFlags: influencer.brandSafetyFlags,
       trustGrade: influencer.trustGrade,
+      confidence: getConfidenceLabel(influencer),
+      fakeRisk: getFakeRiskLabel(influencer),
+      riskCategory: getRiskCategory(influencer),
+      sourceConfidence: getSourceConfidence(influencer),
+      role5TrustScore: getRole5TrustScore(influencer),
+      brandSafetyState: getBrandSafetyState(influencer),
+      positiveReasons: getPositiveReasons(influencer),
+      negativeReasons: getNegativeReasons(influencer),
+      humanReviewFlag: getHumanReviewFlag(influencer),
       matchScore: Math.round(influencer.matchScore),
       sampleSize: Number(engagementData.sample_size ?? 0),
       avgLikes: Number(engagementData.average_likes ?? 0),
@@ -191,7 +210,7 @@ export default function LiveProfilePageClient({
                 <div className="platforms">
                   {profile.links.map((link) => (
                     <a key={link} className="pf pf-yt" href={link} target="_blank" rel="noreferrer">
-                      {new URL(link).hostname.replace(/^www\./, "")}
+                      {hostLabel(link)}
                     </a>
                   ))}
                 </div>
@@ -304,9 +323,72 @@ export default function LiveProfilePageClient({
               </p>
               <div className="badge-row">
                 <span className="mb good">Grade {profile.trustGrade}</span>
+                <span className="mb good">Role 5 {profile.role5TrustScore}</span>
+                <span className="mb">{profile.confidence}</span>
                 <span className="mb">{profile.platform}</span>
                 <span className="mb">{profile.sampleSize} sampled posts</span>
-                <span className="mb">{profile.brandSafetyFlags.length ? "Review flags" : "Brand safe"}</span>
+                <span className="mb">{profile.brandSafetyState}</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="panel evidence-panel">
+            <div className="panel-head">
+              <h3>
+                <span className="pin"></span>Role 5 Evidence
+              </h3>
+              <span className="meta">{profile.sourceConfidence}</span>
+            </div>
+            <div className="evidence-grid">
+              <div>
+                <span className="e-label">Final score</span>
+                <strong>{profile.role5TrustScore}/100</strong>
+              </div>
+              <div>
+                <span className="e-label">Grade</span>
+                <strong>{profile.trustGrade}</strong>
+              </div>
+              <div>
+                <span className="e-label">Confidence</span>
+                <strong>{profile.confidence}</strong>
+              </div>
+              <div>
+                <span className="e-label">Overall fake risk</span>
+                <strong>{profile.fakeRisk}</strong>
+              </div>
+              <div>
+                <span className="e-label">Risk category</span>
+                <strong>{profile.riskCategory}</strong>
+              </div>
+              <div>
+                <span className="e-label">Brand safety</span>
+                <strong>{profile.brandSafetyState}</strong>
+              </div>
+              <div>
+                <span className="e-label">Review state</span>
+                <strong>{profile.humanReviewFlag}</strong>
+              </div>
+              <div>
+                <span className="e-label">Sources</span>
+                <strong>{profile.sourceConfidence}</strong>
+              </div>
+            </div>
+            <div className="evidence-reasons">
+              <div>
+                <h4>Positive reasons</h4>
+                <ul>
+                  {profile.positiveReasons.map((reason) => (
+                    <li key={reason}>{reason}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4>Negative reasons</h4>
+                <ul>
+                  {profile.negativeReasons.map((reason) => (
+                    <li key={reason}>{reason}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </section>

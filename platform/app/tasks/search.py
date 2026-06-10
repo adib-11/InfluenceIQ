@@ -22,6 +22,48 @@ _RESULT_LINK_RE = re.compile(
 )
 _TAG_RE = re.compile(r"<[^>]+>")
 _WHITESPACE_RE = re.compile(r"\s+")
+_DEMO_CREATORS = [
+    {
+        "slug": "maya-rivera",
+        "name": "Maya Rivera",
+        "platform": "instagram",
+        "handle": "@mayarivera.trails",
+        "title": "Maya Rivera trail running creator",
+        "snippet": "Evidence-based outdoor creator with authentic trail gear reviews and positive community engagement.",
+        "followers": 184000,
+        "engagement_rate": 5.8,
+    },
+    {
+        "slug": "jordan-lee",
+        "name": "Jordan Lee",
+        "platform": "youtube",
+        "handle": "@jordanleefit",
+        "title": "Jordan Lee outdoor fitness educator",
+        "snippet": "YouTube educator known for practical training guides, transparent sponsorships, and brand-safe reviews.",
+        "followers": 312000,
+        "engagement_rate": 4.2,
+    },
+    {
+        "slug": "priya-natarajan",
+        "name": "Dr Priya Natarajan",
+        "platform": "instagram",
+        "handle": "@drpriyamoves",
+        "title": "Dr Priya Natarajan movement specialist",
+        "snippet": "Certified professional creating evidence-based mobility content with strong source citations.",
+        "followers": 97000,
+        "engagement_rate": 6.7,
+    },
+    {
+        "slug": "owen-brooks",
+        "name": "Owen Brooks",
+        "platform": "tiktok",
+        "handle": "@owenbrooksoutside",
+        "title": "Owen Brooks sustainable travel creator",
+        "snippet": "Sustainable outdoor creator with helpful field tests, positive audience sentiment, and clear disclosures.",
+        "followers": 221000,
+        "engagement_rate": 7.1,
+    },
+]
 
 
 def _strip_html(value: str) -> str:
@@ -99,6 +141,23 @@ def _fallback_queries(context: dict) -> list[str]:
             ]
         )
     return list(dict.fromkeys(query for query in base_queries if query.strip()))[:8]
+
+
+def _deterministic_results(query: str) -> list[dict]:
+    query_slug = quote_plus(query.lower())
+    results: list[dict] = []
+    for index, creator in enumerate(_DEMO_CREATORS):
+        results.append(
+            {
+                "url": f"https://demo.influenceiq.local/creators/{creator['slug']}?demo_v=2&q={query_slug}",
+                "title": creator["title"],
+                "snippet": creator["snippet"],
+                "relevance_score": 90 - (index * 4),
+                "source": "deterministic",
+                "demo_creator": creator,
+            }
+        )
+    return results
 
 
 def _query_prompt(context: dict) -> str:
@@ -274,29 +333,11 @@ def execute_search(self, campaign_id: str, query: str) -> list[dict]:
             provider = "scrape.do"
             results = _search_via_scrape_do(query)
         else:
-            slug = quote_plus(query.lower())
             provider = "deterministic"
-            results = [
-                {
-                    "url": f"https://example.com/influencers/{slug}",
-                    "title": f"Top creators for {query}",
-                    "snippet": f"Fallback search result for {query}.",
-                    "relevance_score": 60,
-                    "source": provider,
-                }
-            ]
+            results = _deterministic_results(query)
     except (httpx.HTTPError, ValueError):
-        slug = quote_plus(query.lower())
         provider = "deterministic"
-        results = [
-            {
-                "url": f"https://example.com/influencers/{slug}",
-                "title": f"Fallback creators for {query}",
-                "snippet": f"Fallback search result for {query}.",
-                "relevance_score": 60,
-                "source": provider,
-            }
-        ]
+        results = _deterministic_results(query)
 
     update_state(
         campaign_id,

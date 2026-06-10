@@ -28,6 +28,48 @@ _BOT_BLOCK_MARKERS = (
     "unusual traffic",
     "temporarily blocked",
 )
+_DEMO_CREATORS = {
+    "maya-rivera": {
+        "name": "Maya Rivera",
+        "platform": "instagram",
+        "handle": "@mayarivera.trails",
+        "profile_url": "https://instagram.com/mayarivera.trails",
+        "followers": "184,000",
+        "engagement_rate": "5.8%",
+        "credential": "Certified wilderness first responder",
+        "summary": "authentic trail running creator with evidence-based gear reviews and positive community discussions",
+    },
+    "jordan-lee": {
+        "name": "Jordan Lee",
+        "platform": "youtube",
+        "handle": "@jordanleefit",
+        "profile_url": "https://youtube.com/@jordanleefit",
+        "followers": "312,000",
+        "engagement_rate": "4.2%",
+        "credential": "Certified strength coach",
+        "summary": "YouTube educator with transparent sponsorships, helpful outdoor training guides, and brand-safe reviews",
+    },
+    "priya-natarajan": {
+        "name": "Dr Priya Natarajan",
+        "platform": "instagram",
+        "handle": "@drpriyamoves",
+        "profile_url": "https://instagram.com/drpriyamoves",
+        "followers": "97,000",
+        "engagement_rate": "6.7%",
+        "credential": "PhD movement scientist",
+        "summary": "evidence-based mobility creator with strong source citations, professional credentials, and helpful audience sentiment",
+    },
+    "owen-brooks": {
+        "name": "Owen Brooks",
+        "platform": "tiktok",
+        "handle": "@owenbrooksoutside",
+        "profile_url": "https://tiktok.com/@owenbrooksoutside",
+        "followers": "221,000",
+        "engagement_rate": "7.1%",
+        "credential": "Sustainable travel educator",
+        "summary": "creator known for field-tested outdoor content, clear paid partnership disclosures, and positive community feedback",
+    },
+}
 
 
 @lru_cache(maxsize=1)
@@ -57,6 +99,31 @@ def _strip_html(html: str) -> str:
     text = re.sub(r"<style\b[^<]*(?:(?!</style>)<[^<]*)*</style>", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def _demo_html_for_url(url: str) -> str:
+    path = urlparse(url).path.rstrip("/")
+    slug = path.rsplit("/", 1)[-1]
+    creator = _DEMO_CREATORS.get(slug) or next(iter(_DEMO_CREATORS.values()))
+    return f"""
+    <html>
+      <head>
+        <title>{creator['name']} creator evidence profile</title>
+        <meta name="author" content="{creator['name']}">
+        <meta name="description" content="{creator['summary']}">
+      </head>
+      <body>
+        <article>
+          <h1>{creator['name']}</h1>
+          <p>{creator['name']} is a {creator['credential']} and {creator['summary']}.</p>
+          <p>Primary profile: <a href="{creator['profile_url']}">{creator['handle']}</a>.</p>
+          <p>{creator['name']} has {creator['followers']} followers on {creator['platform']} with an engagement rate near {creator['engagement_rate']}.</p>
+          <p>Recent collaborations were described as authentic, evidence-based, helpful, transparent, and positive.</p>
+          <p>The deterministic demo source is suitable for general-audience brand review.</p>
+        </article>
+      </body>
+    </html>
+    """
 
 
 def _title_from_html(html: str, url: str) -> str:
@@ -148,13 +215,7 @@ def _apply_domain_throttle(domain: str) -> float:
 def _fetch_with_resilience(campaign_id: str, url: str, domain: str) -> dict[str, Any]:
     if not settings.SCRAPE_DO_API_KEY:
         return {
-            "html": (
-                "<html><head><title>Demo creator profile</title></head><body>"
-                "<h1>Dr Sarah Tan</h1>"
-                "<p>Certified nutrition educator with Instagram @drsarahtan and YouTube creator presence.</p>"
-                "<p>Known for evidence-based wellness content and positive brand collaborations.</p>"
-                "</body></html>"
-            ),
+            "html": _demo_html_for_url(url),
             "status": 200,
             "provider": "deterministic",
             "attempt_count": 1,

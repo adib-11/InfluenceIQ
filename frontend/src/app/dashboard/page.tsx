@@ -297,8 +297,8 @@ export default function DashboardPage() {
                 <td className="results">214</td>
                 <td className="when">2 hours ago</td>
                 <td>
-                  <Link className="open" href="/shortlist">
-                    Open <span className="arrow">→</span>
+                  <Link className="open" href="/briefs/new">
+                    New brief <span className="arrow">→</span>
                   </Link>
                 </td>
               </tr>
@@ -315,8 +315,8 @@ export default function DashboardPage() {
                 <td className="results">128</td>
                 <td className="when">Yesterday</td>
                 <td>
-                  <Link className="open" href="/shortlist">
-                    Open <span className="arrow">→</span>
+                  <Link className="open" href="/discover">
+                    Discover <span className="arrow">→</span>
                   </Link>
                 </td>
               </tr>
@@ -333,8 +333,8 @@ export default function DashboardPage() {
                 <td className="results">86</td>
                 <td className="when">Tue, May 6</td>
                 <td>
-                  <Link className="open" href="/shortlist">
-                    Open <span className="arrow">→</span>
+                  <Link className="open" href="/briefs/new">
+                    New brief <span className="arrow">→</span>
                   </Link>
                 </td>
               </tr>
@@ -351,8 +351,8 @@ export default function DashboardPage() {
                 <td className="results">312</td>
                 <td className="when">Mon, May 5</td>
                 <td>
-                  <Link className="open" href="/shortlist">
-                    Open <span className="arrow">→</span>
+                  <Link className="open" href="/discover">
+                    Discover <span className="arrow">→</span>
                   </Link>
                 </td>
               </tr>
@@ -369,8 +369,8 @@ export default function DashboardPage() {
                 <td className="results">47</td>
                 <td className="when">Sun, May 4</td>
                 <td>
-                  <Link className="open" href="/shortlist">
-                    Open <span className="arrow">→</span>
+                  <Link className="open" href="/briefs/new">
+                    New brief <span className="arrow">→</span>
                   </Link>
                 </td>
               </tr>

@@ -18,6 +18,26 @@ export const formatCompactNumber = (value: number) =>
 
 export const formatPercent = (value: number) => `${value.toFixed(1)}%`;
 
+const asFiniteNumber = (value: unknown) => {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim()) {
+    const parsed = Number.parseFloat(value);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return null;
+};
+
+const normalizePercentish = (value: unknown) => {
+  const numeric = asFiniteNumber(value);
+  if (numeric === null) return null;
+  return numeric <= 1 ? Math.round(numeric * 100) : Math.round(numeric);
+};
+
+const asStringList = (value: unknown) =>
+  Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === "string" && item.trim().length > 0)
+    : [];
+
 export const titleize = (value: string) =>
   value
     .replace(/[_-]+/g, " ")
@@ -102,4 +122,78 @@ export const estimateRateNumber = (item: InfluencerRecommendation) => {
     }
   }
   return Math.max(250, Math.round(item.followers * 0.01));
+};
+
+export const getRiskCategory = (item: InfluencerRecommendation) => {
+  const category = item.scorePayload.overall_risk_category;
+  if (typeof category === "string" && category.trim()) {
+    return titleize(category);
+  }
+
+  const risk = normalizePercentish(item.scorePayload.overall_fake_risk ?? item.scorePayload.risk_score);
+  if (risk === null) return "Risk unavailable";
+  if (risk >= 70) return "High risk";
+  if (risk >= 40) return "Medium risk";
+  return "Low risk";
+};
+
+export const getConfidenceLabel = (item: InfluencerRecommendation) => {
+  const confidence = normalizePercentish(item.scorePayload.confidence);
+  return confidence === null ? "Confidence unavailable" : `${confidence}% confidence`;
+};
+
+export const getHumanReviewFlag = (item: InfluencerRecommendation) =>
+  item.scorePayload.requires_human_review === true ? "Human review required" : "No human review flag";
+
+export const getPositiveReasons = (item: InfluencerRecommendation) => {
+  const reasons = asStringList(item.scorePayload.positive_reasons);
+  if (reasons.length) return reasons;
+
+  const explanations = item.scorePayload.score_explanations;
+  if (Array.isArray(explanations)) return asStringList(explanations).slice(0, 3);
+  return ["Strong match signals were found for this campaign."];
+};
+
+export const getNegativeReasons = (item: InfluencerRecommendation) => {
+  const reasons = asStringList(item.scorePayload.negative_reasons);
+  if (reasons.length) return reasons;
+  if (item.brandSafetyFlags.length) return item.brandSafetyFlags;
+  return ["No major negative scoring reasons were returned."];
+};
+
+export const getSourceConfidence = (item: InfluencerRecommendation) => {
+  const confidence = normalizePercentish(item.scorePayload.source_confidence);
+  if (confidence !== null) return `${confidence}% source confidence`;
+
+  const citationCount = asFiniteNumber(item.scorePayload.citation_count) ?? item.citations.length;
+  return `${citationCount} citation${citationCount === 1 ? "" : "s"}`;
+};
+
+export const getRole5TrustScore = (item: InfluencerRecommendation) => {
+  const score =
+    normalizePercentish(item.scorePayload.final_score) ??
+    normalizePercentish(item.scorePayload.trust_score) ??
+    normalizePercentish(item.scorePayload.risk_score) ??
+    Math.round(item.matchScore);
+  return Math.max(0, Math.min(100, score));
+};
+
+export const getFakeRiskLabel = (item: InfluencerRecommendation) => {
+  const risk = normalizePercentish(item.scorePayload.overall_fake_risk ?? item.scorePayload.risk_score);
+  return risk === null ? "Fake-risk unavailable" : `${risk}% fake-risk`;
+};
+
+export const getBrandSafetyState = (item: InfluencerRecommendation) => {
+  const direct = item.scorePayload.brand_safety_state;
+  if (typeof direct === "string" && direct.trim()) return titleize(direct);
+
+  const nested = item.scorePayload.brand_safety;
+  if (typeof nested === "string" && nested.trim()) return titleize(nested);
+  if (nested && typeof nested === "object") {
+    const record = nested as Record<string, unknown>;
+    const state = record.state ?? record.status;
+    if (typeof state === "string" && state.trim()) return titleize(state);
+  }
+
+  return item.brandSafetyFlags.length ? "Review flags" : "Brand safe";
 };

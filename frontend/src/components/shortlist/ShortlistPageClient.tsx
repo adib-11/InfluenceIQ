@@ -13,6 +13,13 @@ import {
   type InfluencerListResult,
 } from '@/lib/api';
 import { getCampaignWebSocketUrl } from '@/lib/websocket';
+import {
+  getBrandSafetyState,
+  getConfidenceLabel,
+  getFakeRiskLabel,
+  getRiskCategory,
+  getSourceConfidence,
+} from '@/lib/influencerPresentation';
 import type { CampaignPipelineEvent } from '@/types/events';
 import { isTerminalPipelineEvent } from '@/types/events';
 import { useToast } from '@/components/ui/ToastProvider';
@@ -73,6 +80,12 @@ type MatchRow = {
   tags: string[];
   verified: boolean;
   reason: string;
+  trustGrade: string;
+  confidence: string;
+  fakeRisk: string;
+  riskCategory: string;
+  brandSafety: string;
+  sourceConfidence: string;
 };
 
 const gradientByPlatform: Record<MatchRow['platform'], string> = {
@@ -187,6 +200,12 @@ const toMatchRows = (influencers: InfluencerListResult['items']): MatchRow[] =>
       tier: toTier(item.followers),
       tags,
       verified: item.trustGrade === 'A+' || item.trustGrade === 'A',
+      trustGrade: item.trustGrade,
+      confidence: getConfidenceLabel(item),
+      fakeRisk: getFakeRiskLabel(item),
+      riskCategory: getRiskCategory(item),
+      brandSafety: getBrandSafetyState(item),
+      sourceConfidence: getSourceConfidence(item),
       reason: reasonForInfluencer(
         item.trustGrade,
         item.platform,
@@ -590,6 +609,12 @@ export default function ShortlistPageClient() {
                     </div>
                     <div className="tag-row">
                       <span className={`tag tag-tier ${tierClass[m.tier]}`}>{m.tier}</span>
+                      <span className="tag tag-trust">Grade {m.trustGrade}</span>
+                      <span className="tag">{m.confidence}</span>
+                      <span className="tag">{m.riskCategory}</span>
+                      <span className="tag">{m.brandSafety}</span>
+                      <span className="tag">{m.sourceConfidence}</span>
+                      <span className="tag">{m.fakeRisk}</span>
                       {m.tags.map(t => <span key={t} className="tag">{t}</span>)}
                     </div>
                   </div>

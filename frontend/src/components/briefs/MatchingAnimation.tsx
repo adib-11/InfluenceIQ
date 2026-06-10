@@ -21,7 +21,34 @@ export default function MatchingAnimation() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   const timings = useMemo(() => [720, 600, 800, 700, 580], []);
-  const tickers = useMemo(() => ['IIQ•SCANNING', 'IIQ•DEMOGRAPHICS', 'IIQ•SENTIMENT', 'IIQ•FIT', 'IIQ•RANKING'], []);
+  const campaignId = searchParams.get('campaignId');
+  const hasLiveCampaign = Boolean(campaignId);
+  const tickers = useMemo(
+    () =>
+      hasLiveCampaign
+        ? ['IIQ•PIPELINE', 'IIQ•DISCOVERY', 'IIQ•ENRICHMENT', 'IIQ•SCORING', 'IIQ•SHORTLIST']
+        : ['IIQ•SCANNING', 'IIQ•DEMOGRAPHICS', 'IIQ•SENTIMENT', 'IIQ•FIT', 'IIQ•RANKING'],
+    [hasLiveCampaign]
+  );
+  const steps = useMemo(
+    () =>
+      hasLiveCampaign
+        ? [
+            'Starting campaign pipeline',
+            'Discovering source-backed creator candidates',
+            'Enriching profile and engagement evidence',
+            'Running Role 5 trust and fake-risk scoring',
+            'Preparing your live shortlist'
+          ]
+        : [
+            'Scanning 50,000+ influencer profiles',
+            'Analyzing audience demographics',
+            'Running sentiment analysis on engagement',
+            'Scoring brand-audience fit',
+            'Ranking your top matches'
+          ],
+    [hasLiveCampaign]
+  );
   const total = useMemo(() => timings.reduce((a, b) => a + b, 0), [timings]);
 
   useEffect(() => {
@@ -72,11 +99,10 @@ export default function MatchingAnimation() {
       
       if (isMounted) {
         setPct(100);
-        setTicker(`IIQ•COMPLETE · ${(Math.random() * 100 + 200).toFixed(0).padStart(3, '0')} matches`);
+        setTicker(hasLiveCampaign ? 'IIQ•PIPELINE READY' : `IIQ•COMPLETE · ${(Math.random() * 100 + 200).toFixed(0).padStart(3, '0')} matches`);
         
         setTimeout(() => {
           if (isMounted) {
-            const campaignId = searchParams.get('campaignId');
             const next =
               searchParams.get('next') ||
               (campaignId
@@ -90,7 +116,7 @@ export default function MatchingAnimation() {
 
     runAnimation();
     return () => { isMounted = false; };
-  }, [router, searchParams, tickers, timings, total]);
+  }, [campaignId, hasLiveCampaign, router, searchParams, tickers, timings, total]);
 
   return (
     <>
@@ -122,17 +148,19 @@ export default function MatchingAnimation() {
           <div className="core"><span className="center"></span></div>
         </div>
 
-        <h1>Finding your <span className="ac">perfect</span> creators…</h1>
-        <p className="lede">Our matching model is running 5 passes over 2.41M indexed profiles. Sit tight — this takes ~4 seconds.</p>
+        <h1>
+          {hasLiveCampaign ? 'Preparing your ' : 'Finding your '}
+          <span className="ac">{hasLiveCampaign ? 'live' : 'perfect'}</span>
+          {hasLiveCampaign ? ' shortlist...' : ' creators...'}
+        </h1>
+        <p className="lede">
+          {hasLiveCampaign
+            ? 'The campaign pipeline is discovering creators, enriching evidence, and scoring trust signals before opening the requested shortlist.'
+            : 'Our matching model is running 5 passes over indexed profiles. Sit tight - this takes a few seconds.'}
+        </p>
 
         <div className="steps" id="steps">
-          {[
-            'Scanning 50,000+ influencer profiles',
-            'Analyzing audience demographics',
-            'Running sentiment analysis on engagement',
-            'Scoring brand-audience fit',
-            'Ranking your top matches'
-          ].map((text, i) => (
+          {steps.map((text, i) => (
             <div key={i} className={`step ${currentStep === i ? 'active' : ''} ${doneSteps.includes(i) ? 'done' : ''}`} data-i={i}>
               <span className="icon">
                 <span className="spin-i"></span>

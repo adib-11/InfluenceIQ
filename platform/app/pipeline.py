@@ -344,6 +344,16 @@ def _merge_mention(
         influencer.handle = str(mention.get("handle") or influencer.handle)
     if influencer.platform == "unknown" and mention.get("platform"):
         influencer.platform = str(mention.get("platform"))
+    demo_creator = (search_result or {}).get("demo_creator") or {}
+    if demo_creator:
+        influencer.name = str(demo_creator.get("name") or influencer.name)
+        influencer.handle = str(demo_creator.get("handle") or influencer.handle)
+        influencer.platform = str(demo_creator.get("platform") or influencer.platform)
+        influencer.followers = max(influencer.followers, int(demo_creator.get("followers") or 0))
+        influencer.engagement_rate = max(
+            influencer.engagement_rate,
+            float(demo_creator.get("engagement_rate") or 0.0) / 100,
+        )
     influencer.citations = sorted(
         (set(influencer.citations) | {str(mention.get("source_url") or ""), str(content.get("url") or "")}) - {""}
     )
