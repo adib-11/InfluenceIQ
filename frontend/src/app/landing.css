@@ -156,6 +156,7 @@
     background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
     transform: translateX(-120%);
     transition: transform .8s ease;
+    pointer-events: none;
   }
   .btn-primary:hover::after { transform: translateX(120%); }
 

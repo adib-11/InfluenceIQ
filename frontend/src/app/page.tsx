@@ -33,18 +33,18 @@ export default function LandingPage() {
         {/* ── Nav ── */}
         <header className="nav">
           <div className="nav-inner">
-            <a className="brand" href="#" aria-label="InfluenceIQ home">
+            <Link className="brand" href="/" aria-label="InfluenceIQ home">
               <span className="brand-mark">i</span>
               <span>InfluenceIQ</span>
-            </a>
+            </Link>
             <nav className="nav-links">
-              <a href="#">Discover</a>
-              <a href="#how">How It Works</a>
-              <a href="#">Pricing</a>
+              <Link href="/discover">Discover</Link>
+              <a href="#how-it-works">How It Works</a>
+              <a href="#pricing">Pricing</a>
             </nav>
             <div className="nav-cta">
-              <a className="signin" href="#">Sign in</a>
-              <Link className="btn btn-primary" href="/signup" id="cta-getstarted">
+              <Link className="signin" href="/login">Sign in</Link>
+              <Link className="btn btn-primary" href="/briefs/new" id="cta-getstarted">
                 Get Started
                 <span className="arrow" aria-hidden="true">&rarr;</span>
               </Link>
@@ -76,7 +76,7 @@ export default function LandingPage() {
                 you a campaign-ready shortlist in seconds.
               </p>
               <div className="hero-actions">
-                <Link className="btn btn-primary btn-lg" href="/signup" id="cta-find">
+                <Link className="btn btn-primary btn-lg" href="/briefs/new" id="cta-find">
                   Find Influencers
                   <span className="arrow" aria-hidden="true">&rarr;</span>
                 </Link>
@@ -226,7 +226,7 @@ export default function LandingPage() {
         </section>
 
         {/* ===== Section 2 — Product Showcase ===== */}
-        <section className="showcase">
+        <section className="showcase" id="how-it-works">
           <div className="showcase-inner">
             <div className="showcase-head">
               <div className="eyebrow-row">The product</div>
@@ -584,7 +584,7 @@ export default function LandingPage() {
         </section>
 
         {/* ===== Section 6 — Pricing ===== */}
-        <section className="pricing">
+        <section className="pricing" id="pricing">
           <div className="pricing-inner">
             <div className="pricing-head">
               <div className="eyebrow-row">Pricing</div>
@@ -609,7 +609,7 @@ export default function LandingPage() {
                   <li><b>1</b>&nbsp;saved list</li>
                   <li>No contact reveal</li>
                 </ul>
-                <Link className="price-cta" href="/signup">Get Started Free <span className="arr">&rarr;</span></Link>
+                <Link className="price-cta" href="/briefs/new">Get Started Free <span className="arr">&rarr;</span></Link>
               </article>
 
               <article className="price-card popular">
@@ -625,7 +625,7 @@ export default function LandingPage() {
                   <li>Campaign brief builder</li>
                   <li>ROI estimator</li>
                 </ul>
-                <Link className="price-cta filled" href="/signup">Start Free Trial <span className="arr">&rarr;</span></Link>
+                <Link className="price-cta filled" href="/briefs/new">Start Free Trial <span className="arr">&rarr;</span></Link>
               </article>
 
               <article className="price-card">
@@ -639,7 +639,7 @@ export default function LandingPage() {
                   <li>Team seats &amp; SSO</li>
                   <li>Dedicated support</li>
                 </ul>
-                <a className="price-cta" href="#">Contact Sales <span className="arr">&rarr;</span></a>
+                <Link className="price-cta" href="/settings">Contact Sales <span className="arr">&rarr;</span></Link>
               </article>
             </div>
 
@@ -674,7 +674,7 @@ export default function LandingPage() {
             <h2>Your next campaign deserves the <span className="accent">right voice.</span></h2>
             <p className="subh">Join 500+ brands already using InfluenceIQ to find creators that convert.</p>
             <div className="cta-actions">
-              <Link className="btn-final" href="/signup">
+              <Link className="btn-final" href="/briefs/new">
                 Get Started Free
                 <span className="arrow" aria-hidden="true">&rarr;</span>
               </Link>
@@ -687,10 +687,10 @@ export default function LandingPage() {
           <div className="footer-inner">
             <span>&copy; 2026 InfluenceIQ, Inc.</span>
             <div className="footer-links">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-              <a href="#">Security</a>
-              <a href="#">Contact</a>
+              <Link href="/settings">Privacy</Link>
+              <Link href="/settings">Terms</Link>
+              <Link href="/settings">Security</Link>
+              <Link href="/settings">Contact</Link>
             </div>
           </div>
         </footer>

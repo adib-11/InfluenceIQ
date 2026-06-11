@@ -56,7 +56,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-_engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
+_engine = create_engine(settings.sqlalchemy_database_url, pool_pre_ping=True)
 _redis = redis.from_url(settings.REDIS_URL)
 _state_redis = redis.from_url(settings.REDIS_STATE_DB)
 
